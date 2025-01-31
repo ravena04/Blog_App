@@ -10,7 +10,7 @@ const Header = () => {
   useEffect(() => {
     const fetchUserInfo = async () => {
       try {
-        const response = await fetch("http://localhost:4000/profile", {
+        const response = await fetch("https://blog-app-backend-dtpy.onrender.com/profile", {
           credentials: "include",
         });
         if (response.ok) {
@@ -26,7 +26,7 @@ const Header = () => {
 
   const logout = async () => {
     try {
-      await fetch('http://localhost:4000/logout', {
+      await fetch('https://blog-app-backend-dtpy.onrender.com/logout', {
         method: 'POST',
         credentials: 'include',
         headers: { 'Content-Type': 'application/json' },
