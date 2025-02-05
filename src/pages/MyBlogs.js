@@ -12,7 +12,7 @@ const MyBlogs = () => {
 
   const fetchBlogs = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/myblogs/${window.localStorage.getItem('author')}`);
+      const response = await fetch(`https://blogapp-backend-ttjx.onrender.com/myblogs/${window.localStorage.getItem('author')}`);
       const data = await response.json();
       setBlogs(data.blogs);
     } catch (error) {
@@ -22,7 +22,7 @@ const MyBlogs = () => {
 
   const deleteBlog = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4000/blogs/delete/${id}`, {
+      const response = await fetch(`https://blogapp-backend-ttjx.onrender.com/blogs/delete/${id}`, {
         method: 'DELETE',
       });
 
@@ -36,7 +36,7 @@ const MyBlogs = () => {
 
   const updateBlog = async (id) => {
     try {
-      const response = await fetch(`http://localhost:4000/blogs/update/${id}`, {
+      const response = await fetch(`https://blogapp-backend-ttjx.onrender.com/blogs/update/${id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ title: newTitle, content: newContent }),
