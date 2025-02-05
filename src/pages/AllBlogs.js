@@ -11,7 +11,7 @@ const AllBlogs = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const response = await fetch('http://localhost:4000/blogs');
+        const response = await fetch('https://blogapp-backend-ttjx.onrender.com/blogs');
         if (!response.ok) {
           throw new Error('Failed to fetch blogs');
         }
@@ -30,7 +30,7 @@ const AllBlogs = () => {
   // Fetch comments for a particular blog
   const fetchComments = async (blogId) => {
     try {
-      const response = await fetch(`http://localhost:4000/blogs/${blogId}/comments`);
+      const response = await fetch(`https://blogapp-backend-ttjx.onrender.com/blogs/${blogId}/comments`);
       const data = await response.json();
       setComments(prev => ({ ...prev, [blogId]: data.comments }));
     } catch (error) {
@@ -43,7 +43,7 @@ const AllBlogs = () => {
     if (newComment.trim() === '') return;
     
     try {
-      const response = await fetch(`http://localhost:4000/blogs/${blogId}/comments`, {
+      const response = await fetch(`https://blogapp-backend-ttjx.onrender.com/blogs/${blogId}/comments`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ author: 'CurrentUser', content: newComment })
@@ -60,7 +60,7 @@ const AllBlogs = () => {
   // Handle Like/Dislike
   const handleLikeDislike = async (blogId, type) => {
     try {
-      const response = await fetch(`http://localhost:4000/blogs/${blogId}/${type}`, { method: 'POST' });
+      const response = await fetch(`https://blogapp-backend-ttjx.onrender.com/blogs/${blogId}/${type}`, { method: 'POST' });
       const result = await response.json();
       alert(result.message);
     } catch (error) {
